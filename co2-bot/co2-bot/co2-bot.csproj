@@ -7,10 +7,12 @@
 
   <ItemGroup>
     <Content Remove="Cards\welcomeCard.json" />
+    <Content Remove="Cards\welcomeCard_old.json" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Cards\welcomeCard.json" />
+    <EmbeddedResource Include="Cards\welcomeCard_old.json" />
   </ItemGroup>
 
   <ItemGroup>
