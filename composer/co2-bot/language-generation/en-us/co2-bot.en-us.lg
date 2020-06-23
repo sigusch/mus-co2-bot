@@ -1,7 +1,13 @@
 [import](common.lg)
 
-# SendActivity_Welcome
+# SendActivity_Welcome()
 - ${WelcomeUser()}
-
 # SendActivity_UjkkpB()
 - Sorry, ich konnte das nicht verstehen. Du kannst ....
+# TextInput_Prompt_I9soKX()
+- Sag mir was:
+
+# SendActivity_2kpY1v()
+- Das verursacht ${dialog.co2} kg CO2!
+# SendActivity_E5KrtY()
+- Fehler!

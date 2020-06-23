@@ -7,3 +7,6 @@
 
 >  entity definitions:
 @ ml product  usesFeature products
+
+# HttpTest
+ - httptest

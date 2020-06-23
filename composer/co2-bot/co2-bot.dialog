@@ -42,7 +42,9 @@
                 }
               ]
             }
-          ]
+          ],
+          "value": "dialog.foreach.value",
+          "index": "dialog.foreach.index"
         }
       ]
     },
@@ -75,6 +77,83 @@
             "id": "UjkkpB"
           },
           "activity": "${SendActivity_UjkkpB()}"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "KIzkAq"
+      },
+      "intent": "HttpTest",
+      "actions": [
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "I9soKX"
+          },
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${TextInput_Prompt_I9soKX()}",
+          "property": "user.text"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "gb4zeh"
+          },
+          "method": "GET",
+          "url": "http://127.0.0.1:8080/${user.text}",
+          "resultProperty": "dialog.api.response"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "3SI2gE"
+          },
+          "condition": "dialog.api.response.statusCode == 200",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "euNSlE"
+              },
+              "property": "dialog.co2",
+              "value": "${dialog.api.response.content.co2}"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "2kpY1v"
+              },
+              "activity": "${SendActivity_2kpY1v()}"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "E5KrtY"
+              },
+              "activity": "${SendActivity_E5KrtY()}"
+            },
+            {
+              "$kind": "Microsoft.DeleteProperty",
+              "$designer": {
+                "id": "XPmPDF"
+              },
+              "property": "dialog.api.response"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.DeleteProperty",
+          "$designer": {
+            "id": "KWhLY6"
+          },
+          "property": "user.text"
         }
       ]
     }

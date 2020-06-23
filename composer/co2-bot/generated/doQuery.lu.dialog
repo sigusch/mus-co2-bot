@@ -1,7 +1,6 @@
 {
     "$kind": "Microsoft.MultiLanguageRecognizer",
     "recognizers": {
-        "en-us": "doQuery.en-us.lu",
-        "": "doQuery.en-us.lu"
+        "en-us": "doQuery.en-us.lu"
     }
 }

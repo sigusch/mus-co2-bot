@@ -8,3 +8,7 @@
 - Von wo stammt das Produkt?
 # SendActivity_H1qH2Q()
 - Ok, schauen wir mal wieviel CO2 ein Produkt aus ${user.country} verursacht. 
+# NumberInput_Prompt_e9Tn8a()
+- Wie viele kg davon kaufst du?
+# SendActivity_pebNAa()
+- ${user.weight} kg aus ${user.country} verursachen ${dialog.co2} kg CO2!

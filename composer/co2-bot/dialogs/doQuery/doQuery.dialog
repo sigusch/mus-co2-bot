@@ -39,6 +39,75 @@
             "id": "H1qH2Q"
           },
           "activity": "${SendActivity_H1qH2Q()}"
+        },
+        {
+          "$kind": "Microsoft.NumberInput",
+          "$designer": {
+            "id": "e9Tn8a"
+          },
+          "defaultLocale": "de-de",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${NumberInput_Prompt_e9Tn8a()}",
+          "property": "user.weight"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "jrKEVf"
+          },
+          "method": "GET",
+          "url": "http://127.0.0.1:8080/${user.weight}",
+          "resultProperty": "dialog.api.response"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "T6JNmj"
+          },
+          "condition": "dialog.api.response.statuscode == 200",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "c6D28u"
+              },
+              "value": "${dialog.api.response.content.co2}",
+              "property": "dialog.co2"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "pebNAa"
+              },
+              "activity": "${SendActivity_pebNAa()}"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.DeleteProperty",
+              "$designer": {
+                "id": "8XT6b3"
+              },
+              "property": "dialog.api.response"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.DeleteProperty",
+          "$designer": {
+            "id": "KrTZ3h"
+          },
+          "property": "user.weight"
+        },
+        {
+          "$kind": "Microsoft.DeleteProperty",
+          "$designer": {
+            "id": "FOjAAc"
+          },
+          "property": "user.country"
         }
       ]
     }

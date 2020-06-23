@@ -1,7 +1,6 @@
 {
     "$kind": "Microsoft.MultiLanguageRecognizer",
     "recognizers": {
-        "en-us": "co2-bot.en-us.lu",
-        "": "co2-bot.en-us.lu"
+        "en-us": "co2-bot.en-us.lu"
     }
 }
