@@ -1,5 +1,9 @@
 # WelcomeUser
-- Willkommen zum MUS2 CO2-Bot!
+[Activity
+    Text =  Willkommen zum MUS2 CO2-Bot! Was würdest du heute gerne machen?
+    SuggestedActions = CO2 Abfrage  | Abbrechen | Hilfe
+]
+
 
 # QueryCo2
 - Hier kannst du CO2 Daten abfragen. 

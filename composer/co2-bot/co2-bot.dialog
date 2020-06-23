@@ -156,6 +156,77 @@
           "property": "user.text"
         }
       ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "Ss3Yhk"
+      },
+      "intent": "Cancel",
+      "actions": [
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "QngBdf"
+          },
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${TextInput_Prompt_QngBdf()}",
+          "property": "turn.cancelOutcome",
+          "value": "= @confirmation"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "hMGUsr"
+          },
+          "condition": "turn.cancelOutcome == true || turn.cancelOutcome == \"Ja\"",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "5TcqJa"
+              },
+              "activity": "${SendActivity_5TcqJa()}"
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "NLEpbM"
+              },
+              "activity": "${SendActivity_NLEpbM()}"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.CancelAllDialogs",
+          "$designer": {
+            "id": "TrvP9U"
+          },
+          "activityProcessed": true
+        }
+      ],
+      "condition": "#Cancel.score"
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "fLEt6V"
+      },
+      "intent": "Hilfe",
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "Bo62IT"
+          },
+          "activity": "${SendActivity_Bo62IT()}"
+        }
+      ]
     }
   ],
   "$schema": "https://raw.githubusercontent.com/microsoft/BotFramework-Composer/stable/Composer/packages/server/schemas/sdk.schema",

@@ -3,7 +3,11 @@
 # SendActivity_Welcome()
 - ${WelcomeUser()}
 # SendActivity_UjkkpB()
-- Sorry, ich konnte das nicht verstehen. Du kannst ....
+[Activity
+    Text = Sorry, ich konnte das nicht verstehen. Du kannst
+    SuggestedActions = CO2 Abfrage | Abbrechen | Hilfe
+]
+
 # TextInput_Prompt_I9soKX()
 - Sag mir was:
 
@@ -11,3 +15,16 @@
 - Das verursacht ${dialog.co2} kg CO2!
 # SendActivity_E5KrtY()
 - Fehler!
+
+# TextInput_Prompt_QngBdf()
+- Wollen Sie wirklich abbrechen?
+# SendActivity_5TcqJa()
+- Dann nicht. 
+# SendActivity_NLEpbM()
+- Alle Dialoge werden geschlossen. 
+# SendActivity_Bo62IT()
+[Activity
+    Text = Du kannst folgende Aktionen durchführen: 
+    SuggestedActions = CO2 Abfrage | Abbrechen | Hilfe
+]
+

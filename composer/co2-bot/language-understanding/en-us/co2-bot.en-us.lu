@@ -4,9 +4,53 @@
 # Abfrage
 - Ich würde gerne eine CO2 Abfrage machen.
 - Wieviel CO2 verursacht eine {@product=bananen}
+- CO2
+- CO2 Abfrage
 
 >  entity definitions:
 @ ml product  usesFeature products
 
 # HttpTest
  - httptest
+
+
+# Cancel
+> add some example phrases to trigger this intent:
+- Abbrechen
+- Stopp
+- Bitte abbrechen
+- Bitte stoppen
+- Zurück
+- Ende
+
+> entity definitions:
+> @ ml city
+
+# TextInput_Response_QngBdf
+- Ja
+- Nein
+
+@list confirmation = 
+	- Ja:
+		- Fix
+		- Jap
+		- Yes
+		- Natürlich
+		- Sicher
+		- yup
+		- ok
+		- j
+    - Nein:
+	    - nope
+        - Ne
+        - Nö
+        - Lieber nicht   
+		- n			                         
+
+
+# Hilfe
+- Hilfe
+- Was kann ich tun. 
+- Wie geht es weiter
+- Was?
+- Help
