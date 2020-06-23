@@ -46,6 +46,27 @@
           ]
         },
         {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "MmUeZe"
+          },
+          "condition": "user.country == null",
+          "actions": [
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "gUTJdc"
+              },
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "property": "user.country",
+              "prompt": "${TextInput_Prompt_gUTJdc()}"
+            }
+          ]
+        },
+        {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
             "id": "uMYsKZ"

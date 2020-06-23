@@ -18,3 +18,15 @@
 @ intent TextInput_Response_QN7g2J usesFeatures country, product
 
 
+
+
+
+# TextInput_Response_gUTJdc
+- [Aus] {@country}
+
+> entity definitions:
+@ prebuilt number
+@ ml country usesFeature countries
+@ ml product usesFeature products
+
+@ intent TextInput_Response_QN7g2J usesFeatures country, product
