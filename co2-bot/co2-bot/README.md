@@ -1,5 +1,18 @@
 # co2_bot
 
+## done
+### Generate Models
+```
+npm i -g @microsoft/botframework-cli
+
+```
+
+### Dialogs
+https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-concept-dialog?view=azure-bot-service-4.0
+
+
+
+## Given
 Bot Framework v4 core bot sample.
 
 This bot has been created using [Bot Framework](https://dev.botframework.com), it shows how to:

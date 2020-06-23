@@ -1,0 +1,9 @@
+@ phraselist products(interchangeable) = 
+	- Tomaten,Äpfel,Orangen,Bananen,Erdbeeren,Kaffee,Paprika,Gurken,Marillen,Kirschen,Zitronen,Karotten,Weintrauben
+
+# Abfrage
+- Ich würde gerne eine CO2 Abfrage machen.
+- Wieviel CO2 verursacht eine {@product=bananen}
+
+>  entity definitions:
+@ ml product  usesFeature products

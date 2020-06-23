@@ -1,0 +1,10 @@
+[import](common.lg)
+
+# SendActivity_lkKl46()
+- ${QueryCo2()}
+
+
+# TextInput_Prompt_5nQTHs()
+- Von wo stammt das Produkt?
+# SendActivity_H1qH2Q()
+- Ok, schauen wir mal wieviel CO2 ein Produkt aus ${user.country} verursacht. 

@@ -1,0 +1,9 @@
+# TextInput_Response_5nQTHs
+> add some expected user responses:
+- Das {product} stammt aus {country}
+- Aus {country}
+- Von {country}
+- {country}
+>
+> entity definitions:
+@ ml country
