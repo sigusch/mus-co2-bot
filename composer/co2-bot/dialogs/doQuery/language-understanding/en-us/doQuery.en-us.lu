@@ -9,6 +9,11 @@
 - Gib mir {@number} kg {@product} aus {@country}?
 - {@number} kg {@product} aus {@country}?
 - 1,5 kg {@product=bananen} aus {@country=Ägypten}?
+- Wieviel CO2 verursacht eine {@product}
+- {@number} kg {@product} aus {@country}
+- co2 bericht für {@number} kg {@product} aus {@country}
+- wie viel co2 verursacht {@number} kg {@product} aus {@country}?
+- {@product} aus {@country}?
 
 > entity definitions:
 @ prebuilt number
@@ -22,11 +27,28 @@
 
 
 # TextInput_Response_gUTJdc
-- [Aus] {@country}
+- Aus {@country}
+- {@country}
 
 > entity definitions:
 @ prebuilt number
 @ ml country usesFeature countries
+
+@ intent TextInput_Response_gUTJdc usesFeatures country
+
+
+# TextInput_Response_pzSF1G
+- Um {@product}
+- {@product}
+
+> entity definitions:
+@ prebuilt number
 @ ml product usesFeature products
 
-@ intent TextInput_Response_QN7g2J usesFeatures country, product
+@ intent TextInput_Response_pzSF1G usesFeatures product
+
+# TextInput_Response_3AeZli
+- {@number}
+
+> entity definitions:
+@ prebuilt number

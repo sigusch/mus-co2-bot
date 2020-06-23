@@ -48,9 +48,30 @@
         {
           "$kind": "Microsoft.IfCondition",
           "$designer": {
+            "id": "QekIFu"
+          },
+          "condition": "equals(user.product, '')",
+          "actions": [
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "pzSF1G"
+              },
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "prompt": "${TextInput_Prompt_pzSF1G()}",
+              "property": "user.product"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
             "id": "MmUeZe"
           },
-          "condition": "user.country == null",
+          "condition": "equals(user.country, '')",
           "actions": [
             {
               "$kind": "Microsoft.TextInput",
@@ -63,6 +84,27 @@
               "allowInterruptions": false,
               "property": "user.country",
               "prompt": "${TextInput_Prompt_gUTJdc()}"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "7vRAuX"
+          },
+          "condition": "equals(user.number, '')",
+          "actions": [
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "3AeZli"
+              },
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "prompt": "${TextInput_Prompt_3AeZli()}",
+              "property": "user.number"
             }
           ]
         },
