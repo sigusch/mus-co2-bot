@@ -6,18 +6,23 @@
 
 # Abfrage
 - Ich würde gerne eine CO2 Abfrage machen.
-- Wieviel CO2 verursacht eine {@product}
 - CO2
 - CO2 Abfrage
+- Gib mir {@number} kg {@product} aus {@country}?
 - {@number} kg {@product} aus {@country}?
+- 1,5 kg {@product=bananen} aus {@country=Ägypten}?
+- Wieviel CO2 verursacht eine {@product}
 - {@number} kg {@product} aus {@country}
 - co2 bericht für {@number} kg {@product} aus {@country}
 - wie viel co2 verursacht {@number} kg {@product} aus {@country}?
+- {@product} aus {@country}?
 
->  entity definitions:
-@ ml product  usesFeature products
-@ ml country usesFeature countries
+> entity definitions:
 @ prebuilt number
+@ ml country usesFeature countries
+@ ml product usesFeature products
+
+@ intent Abfrage usesFeatures country, product
 
 # HttpTest
  - httptest

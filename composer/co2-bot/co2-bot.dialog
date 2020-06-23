@@ -56,6 +56,26 @@
       "intent": "Abfrage",
       "actions": [
         {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "hU86PB"
+          },
+          "assignments": [
+            {
+              "property": "user.country",
+              "value": "${@country}"
+            },
+            {
+              "property": "user.product",
+              "value": "${@product}"
+            },
+            {
+              "property": "user.number",
+              "value": "${@number}"
+            }
+          ]
+        },
+        {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
             "id": "UTM940"

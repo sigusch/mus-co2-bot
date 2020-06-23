@@ -19,3 +19,6 @@
 - Um welches Produkt handelt es sich?
 # TextInput_Prompt_3AeZli()
 - Wieviel schwer ist das Produkt in KG?
+# SendActivity_5cmEXa()
+- Data: ${user.country}, ${user.product}, ${user.number}
+
