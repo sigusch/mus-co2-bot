@@ -226,7 +226,8 @@
           },
           "activity": "${SendActivity_Bo62IT()}"
         }
-      ]
+      ],
+      "condition": "Hilfe.score > 0.7"
     }
   ],
   "$schema": "https://raw.githubusercontent.com/microsoft/BotFramework-Composer/stable/Composer/packages/server/schemas/sdk.schema",

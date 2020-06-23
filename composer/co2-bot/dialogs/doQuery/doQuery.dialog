@@ -15,43 +15,42 @@
       },
       "actions": [
         {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "lkKl46"
-          },
-          "activity": "${SendActivity_lkKl46()}"
-        },
-        {
           "$kind": "Microsoft.TextInput",
           "$designer": {
-            "id": "5nQTHs"
+            "id": "QN7g2J"
           },
           "disabled": false,
           "maxTurnCount": 3,
           "alwaysPrompt": false,
           "allowInterruptions": false,
-          "prompt": "${TextInput_Prompt_5nQTHs()}",
-          "property": "user.country"
+          "prompt": "${TextInput_Prompt_QN7g2J()}"
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "mpbW2Q"
+          },
+          "assignments": [
+            {
+              "property": "user.country",
+              "value": "${@country}"
+            },
+            {
+              "property": "user.product",
+              "value": "${@product}"
+            },
+            {
+              "property": "user.number",
+              "value": "${@number}"
+            }
+          ]
         },
         {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
-            "id": "H1qH2Q"
+            "id": "uMYsKZ"
           },
-          "activity": "${SendActivity_H1qH2Q()}"
-        },
-        {
-          "$kind": "Microsoft.NumberInput",
-          "$designer": {
-            "id": "e9Tn8a"
-          },
-          "defaultLocale": "de-de",
-          "disabled": false,
-          "maxTurnCount": 3,
-          "alwaysPrompt": false,
-          "allowInterruptions": false,
-          "prompt": "${NumberInput_Prompt_e9Tn8a()}",
-          "property": "user.weight"
+          "activity": "${SendActivity_uMYsKZ()}"
         },
         {
           "$kind": "Microsoft.HttpRequest",

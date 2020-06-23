@@ -1,7 +1,10 @@
 [import](common.lg)
 
 # SendActivity_Welcome()
-- ${WelcomeUser()}
+[Activity
+    Text =  Willkommen zum MUS2 CO2-Bot! Was würdest du heute gerne machen?
+    SuggestedActions = CO2 Abfrage  | Abbrechen | Hilfe
+]
 # SendActivity_UjkkpB()
 [Activity
     Text = Sorry, ich konnte das nicht verstehen. Du kannst
