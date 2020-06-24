@@ -6,8 +6,7 @@
 
 # SendActivity_pebNAa()
 - ${user.weight} kg aus ${user.country} verursachen ${dialog.co2} kg CO2!
-# TextInput_Prompt_QN7g2J()
-- ${QueryCo2()}
+
 # SendActivity_uMYsKZ()
 - Data: ${user.country}, ${user.product}, ${user.number}
 
@@ -19,6 +18,7 @@
 - Um welches Produkt handelt es sich?
 # TextInput_Prompt_3AeZli()
 - Wieviel schwer ist das Produkt in KG?
-# SendActivity_5cmEXa()
-- Data: ${user.country}, ${user.product}, ${user.number}
+
+# TextInput_Prompt_dSfp1a()
+- ${QueryCo2()}
 

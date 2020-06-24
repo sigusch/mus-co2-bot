@@ -5,27 +5,6 @@
 	- Tomaten,Äpfel,Orangen,Bananen,Erdbeeren,Kaffee,Paprika,Gurken,Marillen,Kirschen,Zitronen,Karotten,Weintrauben
 
 
-# TextInput_Response_QN7g2J
-- Gib mir {@number} kg {@product} aus {@country}?
-- {@number} kg {@product} aus {@country}?
-- 1,5 kg {@product=bananen} aus {@country=Ägypten}?
-- Wieviel CO2 verursacht eine {@product}
-- {@number} kg {@product} aus {@country}
-- co2 bericht für {@number} kg {@product} aus {@country}
-- wie viel co2 verursacht {@number} kg {@product} aus {@country}?
-- {@product} aus {@country}?
-
-> entity definitions:
-@ prebuilt number
-@ ml country usesFeature countries
-@ ml product usesFeature products
-
-@ intent TextInput_Response_QN7g2J usesFeatures country, product
-
-
-
-
-
 # TextInput_Response_gUTJdc
 - Aus {@country}
 - {@country}
@@ -52,3 +31,25 @@
 
 > entity definitions:
 @ prebuilt number
+
+# TextInput_Response_dSfp1a
+- Gib mir {@number} kg {@product} aus {@country}?
+- {@number} kg {@product} aus {@country}?
+- 1,5 kg {@product=bananen} aus {@country=Ägypten}?
+- Wieviel CO2 verursacht eine {@product}
+- {@number} kg {@product} aus {@country}
+- co2 bericht für {@number} kg {@product} aus {@country}
+- wie viel co2 verursacht {@number} kg {@product} aus {@country}?
+- {@product} aus {@country}?
+
+> entity definitions:
+@ prebuilt number
+@ ml country usesFeature countries
+@ ml product usesFeature products
+
+@ intent TextInput_Response_dSfp1a usesFeatures country, product
+
+
+
+
+

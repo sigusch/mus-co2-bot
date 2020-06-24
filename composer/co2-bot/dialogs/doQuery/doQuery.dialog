@@ -15,40 +15,42 @@
       },
       "actions": [
         {
-          "$kind": "Microsoft.SendActivity",
+          "$kind": "Microsoft.IfCondition",
           "$designer": {
-            "id": "5cmEXa"
+            "id": "gU2Owt"
           },
-          "activity": "${SendActivity_5cmEXa()}"
-        },
-        {
-          "$kind": "Microsoft.TextInput",
-          "$designer": {
-            "id": "QN7g2J"
-          },
-          "disabled": false,
-          "maxTurnCount": 3,
-          "alwaysPrompt": false,
-          "allowInterruptions": false,
-          "prompt": "${TextInput_Prompt_QN7g2J()}"
-        },
-        {
-          "$kind": "Microsoft.SetProperties",
-          "$designer": {
-            "id": "mpbW2Q"
-          },
-          "assignments": [
+          "condition": "equals(user.product, '') && equals(user.country, '') && equals(user.number, '')",
+          "actions": [
             {
-              "property": "user.country",
-              "value": "${@country}"
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "dSfp1a"
+              },
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": true,
+              "prompt": "${TextInput_Prompt_dSfp1a()}"
             },
             {
-              "property": "user.product",
-              "value": "${@product}"
-            },
-            {
-              "property": "user.number",
-              "value": "${@number}"
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "gdWMgU"
+              },
+              "assignments": [
+                {
+                  "property": "user.country",
+                  "value": "${@country}"
+                },
+                {
+                  "property": "user.product",
+                  "value": "${@product}"
+                },
+                {
+                  "property": "user.number",
+                  "value": "${@number}"
+                }
+              ]
             }
           ]
         },
@@ -67,7 +69,7 @@
               "disabled": false,
               "maxTurnCount": 3,
               "alwaysPrompt": false,
-              "allowInterruptions": false,
+              "allowInterruptions": true,
               "prompt": "${TextInput_Prompt_pzSF1G()}",
               "property": "user.product"
             }
@@ -88,7 +90,7 @@
               "disabled": false,
               "maxTurnCount": 3,
               "alwaysPrompt": false,
-              "allowInterruptions": false,
+              "allowInterruptions": true,
               "property": "user.country",
               "prompt": "${TextInput_Prompt_gUTJdc()}"
             }
@@ -109,7 +111,7 @@
               "disabled": false,
               "maxTurnCount": 3,
               "alwaysPrompt": false,
-              "allowInterruptions": false,
+              "allowInterruptions": true,
               "prompt": "${TextInput_Prompt_3AeZli()}",
               "property": "user.number"
             }

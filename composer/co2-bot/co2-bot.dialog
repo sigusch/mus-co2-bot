@@ -230,7 +230,7 @@
           "activityProcessed": true
         }
       ],
-      "condition": "#Cancel.score"
+      "condition": "#Cancel.score > 0.7"
     },
     {
       "$kind": "Microsoft.OnIntent",
@@ -247,7 +247,7 @@
           "activity": "${SendActivity_Bo62IT()}"
         }
       ],
-      "condition": "Hilfe.score > 0.7"
+      "condition": "#Hilfe.score > 0.7"
     }
   ],
   "$schema": "https://raw.githubusercontent.com/microsoft/BotFramework-Composer/stable/Composer/packages/server/schemas/sdk.schema",
