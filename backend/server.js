@@ -1,38 +1,42 @@
 // MUS2 CO2 - Bot Backend
 const bodyParser = require('body-parser');
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-const jsdom = require('jsdom');
+const JSDOM = require('jsdom').JSDOM;
 const express = require('express');
 const app = express();
 const port = 8080;
-const http = require('http');
 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-app.get('/:usertext', (req, res) => {
-    console.log(req.params.usertext);
-
-    if(!req.params.usertext) {
+app.get('/', (req, res) => {
+    if(!req.query.country || !req.query.weight) {
         return res.status(400).send({
           success: 'false',
-          message: 'user text is required'
+          message: 'country and weight are required'
         });
+    } else if (isNaN(parseFloat(req.query.weight))) {
+      return res.status(400).send({
+        success: 'false',
+        message: 'weight must be a number'
+      });
     }
-    var co2 = Math.floor(Math.random() * 10); 
+    var parsedWeight = parseFloat(req.query.weight.replace(',','.'));
+    var co2 = getCO2(req.query.country, parsedWeight);
     return res.status(200).send({
-        'co2': co2
+        'co2': co2,
+        'analogy': getAnalogy(co2)
     })
 });
 
 // TODO add query params for country and weight
-app.get('/', (req, res) => {
-    var co2 = getCO2("Italien", 1);
-    console.log("1kg aus Ägypten verursacht: " + co2 + " kg CO2!");
-    return res.status(200).send();
-});
+// app.get('/', (req, res) => {
+//     var co2 = getCO2("Italien", 1);
+//     console.log("1kg aus Ägypten verursacht: " + co2 + " kg CO2!");
+//     return res.status(200).send();
+// });
 
 
 
@@ -43,8 +47,8 @@ app.listen(port, () => {
 function getCO2(country, weight) {
 
   // variante luftlinie.org
-  var url = 'https://www.luftlinie.org/%C3%96sterreich/' + country;
-
+  var url = 'https://www.luftlinie.org/' + encodeURI('Österreich') + '/' + encodeURI(country);
+  
   // variante distance24
   // var url = 'https://www.distance24.org/%C3%96sterreich/' + country;
   var xmlHttp = new XMLHttpRequest();
@@ -52,15 +56,23 @@ function getCO2(country, weight) {
   xmlHttp.send(null);
 
   // variante luftlinie.org
+  var dom = new JSDOM(xmlHttp.responseText);
   var distance = dom.window.document.getElementsByClassName("value km")[0].innerHTML;
 
   // variante distance24
   //var distance = dom.window.document.getElementById("map").getAttribute("data-distance");
   
-  console.log("Distanz: " + distance);
-  console.log("weigh: " + weight);
-  // TODO find better formula for CO2 calculation
-  var result = parseFloat(distance) * weight * 0.01;
+  console.log("Distanz: " + distance.replace('.', ''));
+  console.log("weight: " + weight);
+  // 380g für 50kg ~ 8g für 1kg
+  var result = parseFloat(distance.replace('.', '')) * weight * 0.008;
+
   return Math.round((result + Number.EPSILON) * 100) / 100;
 
+}
+
+
+function getAnalogy(weight) {
+
+  return "Thats a lot a CO2";
 }
