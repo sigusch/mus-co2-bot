@@ -29,6 +29,6 @@
 
 # list(collection, name)
 - IF : ${collection != null}
-    - You have ${count(collection)} item(s) in your **${name}** list. \n ${join(foreach(collection, item, concat('- ', item)), '\n')}
+    - Es befinden sich ${count(collection)} Produkte in der **${name}**.  \n ${join(foreach(collection, item, concat('- ', concat(item.number, " kg ", item.product, " aus ", item.country))), '\n')}
 - ELSE : 
-    - You do not have any items in your **${name}** list.
+    - Es befinden sich keine Produkte in der **${name}**. 
