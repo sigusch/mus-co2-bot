@@ -82,6 +82,12 @@
           },
           "activityProcessed": true,
           "dialog": "doQuery"
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "248lcu"
+          }
         }
       ]
     },

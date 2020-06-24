@@ -1,0 +1,77 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "cDIJuf",
+    "name": "doHttpRequest"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "id": "4zwLvX"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "pzwjhB"
+          },
+          "activity": "${SendActivity_pzwjhB()}"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "xGZfq8"
+          },
+          "method": "GET",
+          "url": "http://127.0.0.1:8080/${user.number}",
+          "resultProperty": "dialog.api.response"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "hvli0N"
+          },
+          "condition": "dialog.api.response.statuscode == 200",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "ZAu6Y0"
+              },
+              "value": "${dialog.api.response.content.co2}",
+              "property": "dialog.co2"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "7p8iW3"
+              },
+              "activity": "${SendActivity_7p8iW3()}"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "P1CfuG"
+              },
+              "activity": "${SendActivity_P1CfuG()}"
+            },
+            {
+              "$kind": "Microsoft.DeleteProperty",
+              "$designer": {
+                "id": "KMNywP"
+              },
+              "property": "dialog.api.response"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "doHttpRequest.lg"
+}

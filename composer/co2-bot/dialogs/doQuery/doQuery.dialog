@@ -15,170 +15,67 @@
       },
       "actions": [
         {
-          "$kind": "Microsoft.IfCondition",
+          "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "gU2Owt"
+            "id": "v4Ru8C"
           },
-          "condition": "equals(user.product, '') && equals(user.country, '') && equals(user.number, '')",
-          "actions": [
-            {
-              "$kind": "Microsoft.TextInput",
-              "$designer": {
-                "id": "dSfp1a"
-              },
-              "disabled": false,
-              "maxTurnCount": 3,
-              "alwaysPrompt": false,
-              "allowInterruptions": true,
-              "prompt": "${TextInput_Prompt_dSfp1a()}"
-            },
-            {
-              "$kind": "Microsoft.SetProperties",
-              "$designer": {
-                "id": "gdWMgU"
-              },
-              "assignments": [
-                {
-                  "property": "user.country",
-                  "value": "${@country}"
-                },
-                {
-                  "property": "user.product",
-                  "value": "${@product}"
-                },
-                {
-                  "property": "user.number",
-                  "value": "${@number}"
-                }
-              ]
-            }
-          ]
+          "activityProcessed": true,
+          "dialog": "getQueryData"
         },
         {
-          "$kind": "Microsoft.IfCondition",
+          "$kind": "Microsoft.BeginDialog",
           "$designer": {
-            "id": "QekIFu"
+            "id": "E3XO8D"
           },
-          "condition": "equals(user.product, '')",
-          "actions": [
-            {
-              "$kind": "Microsoft.TextInput",
-              "$designer": {
-                "id": "pzSF1G"
-              },
-              "disabled": false,
-              "maxTurnCount": 3,
-              "alwaysPrompt": false,
-              "allowInterruptions": true,
-              "prompt": "${TextInput_Prompt_pzSF1G()}",
-              "property": "user.product"
-            }
-          ]
+          "activityProcessed": true,
+          "dialog": "doHttpRequest"
         },
         {
-          "$kind": "Microsoft.IfCondition",
+          "$kind": "Microsoft.DeleteProperties",
           "$designer": {
-            "id": "MmUeZe"
+            "id": "WWqVZh"
           },
-          "condition": "equals(user.country, '')",
-          "actions": [
-            {
-              "$kind": "Microsoft.TextInput",
-              "$designer": {
-                "id": "gUTJdc"
-              },
-              "disabled": false,
-              "maxTurnCount": 3,
-              "alwaysPrompt": false,
-              "allowInterruptions": true,
-              "property": "user.country",
-              "prompt": "${TextInput_Prompt_gUTJdc()}"
-            }
-          ]
-        },
-        {
-          "$kind": "Microsoft.IfCondition",
-          "$designer": {
-            "id": "7vRAuX"
-          },
-          "condition": "equals(user.number, '')",
-          "actions": [
-            {
-              "$kind": "Microsoft.TextInput",
-              "$designer": {
-                "id": "3AeZli"
-              },
-              "disabled": false,
-              "maxTurnCount": 3,
-              "alwaysPrompt": false,
-              "allowInterruptions": true,
-              "prompt": "${TextInput_Prompt_3AeZli()}",
-              "property": "user.number"
-            }
-          ]
-        },
-        {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "uMYsKZ"
-          },
-          "activity": "${SendActivity_uMYsKZ()}"
-        },
-        {
-          "$kind": "Microsoft.HttpRequest",
-          "$designer": {
-            "id": "jrKEVf"
-          },
-          "method": "GET",
-          "url": "http://127.0.0.1:8080/${user.weight}",
-          "resultProperty": "dialog.api.response"
-        },
-        {
-          "$kind": "Microsoft.IfCondition",
-          "$designer": {
-            "id": "T6JNmj"
-          },
-          "condition": "dialog.api.response.statuscode == 200",
-          "actions": [
-            {
-              "$kind": "Microsoft.SetProperty",
-              "$designer": {
-                "id": "c6D28u"
-              },
-              "value": "${dialog.api.response.content.co2}",
-              "property": "dialog.co2"
-            },
-            {
-              "$kind": "Microsoft.SendActivity",
-              "$designer": {
-                "id": "pebNAa"
-              },
-              "activity": "${SendActivity_pebNAa()}"
-            }
-          ],
-          "elseActions": [
-            {
-              "$kind": "Microsoft.DeleteProperty",
-              "$designer": {
-                "id": "8XT6b3"
-              },
-              "property": "dialog.api.response"
-            }
+          "properties": [
+            "user.number",
+            "user.product",
+            "user.country"
           ]
         },
         {
           "$kind": "Microsoft.DeleteProperty",
           "$designer": {
-            "id": "KrTZ3h"
+            "id": "llNU8d"
           },
-          "property": "user.weight"
+          "property": "turn.repeatOutcome"
         },
         {
-          "$kind": "Microsoft.DeleteProperty",
+          "$kind": "Microsoft.TextInput",
           "$designer": {
-            "id": "FOjAAc"
+            "id": "nM8rIz"
           },
-          "property": "user.country"
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${TextInput_Prompt_nM8rIz()}",
+          "property": "turn.repeatOutcome",
+          "value": "= @confirmation"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "RGI58s"
+          },
+          "condition": "turn.repeatOutcome == true || turn.repeatOutcome == \"Ja\"",
+          "actions": [
+            {
+              "$kind": "Microsoft.RepeatDialog",
+              "$designer": {
+                "id": "LPqZeu"
+              },
+              "activityProcessed": true
+            }
+          ]
         }
       ]
     }
