@@ -1,10 +1,43 @@
 # WelcomeUser
 [Activity
     Text =  Willkommen zum MUS2 CO2-Bot! Was würdest du heute gerne machen?
-    SuggestedActions = CO2 Abfrage  | Abbrechen | Hilfe
+    SuggestedActions = CO2 Abfrage | Einkaufen | Anzeigen | Abbrechen | Hilfe
+]
+
+# AvailableActions
+[Activity
+    Text = Du kannst folgende Aktionen durchführen: 
+    SuggestedActions = CO2 Abfrage | Einkaufen |  Anzeigen | Abbrechen | Hilfe
 ]
 
 
+
 # QueryCo2
-- Hier kannst du CO2 Daten abfragen. 
-- Du fragst dich wieviel CO2 ein Produkt verursacht. Ich kanns dir sagen. 
+- IF: ${user.Adding}
+    - Füge Produkte zum Einkaufskorb hinzu. 
+    - Gibt mir das Produkt, das Herkunftsland und die Menge in KG und ich füg es in den Einkaufskorb hinzu.
+    - Gibt mir das Produkt, das Herkunftsland und die Menge in KG und ich füg es in den Warenkorb hinzu.
+    - Teile mir Details wie Gewicht, Namen und Herkunftsland des Produktes mit. 
+- ELSE:
+    - Hier kannst du CO2 Daten abfragen. 
+    - Du fragst dich wieviel CO2 ein Produkt verursacht. Ich kanns dir sagen. 
+    - Gibt mir das Produkt, das Herkunftsland und die Menge in KG und ich sag den CO2 Verbrauch. 
+
+
+# cardActionTemplate(type, title, value)
+[CardAction
+    Type = ${if(type == null, 'imBack', type)}
+    Title = ${title}
+    Value = ${value}
+    Text = ${title}
+]
+
+
+# ShowList
+[HeroCard
+    title = BotFramework Hero Card
+    subtitle = Microsoft Bot Framework
+    text = Build and connect intelligent bots to interact with your users naturally wherever they are, from text/sms to Skype, Slack, Office 365 mail and other popular services.
+    image = https://sec.ch9.ms/ch9/7ff5/e07cfef0-aa3b-40bb-9baa-7c9ef8ff7ff5/buildreactionbotframework_960.jpg
+    buttons = ${cardActionTemplate('imBack', 'Hinzufügen', 'Ausrechnen')}
+]

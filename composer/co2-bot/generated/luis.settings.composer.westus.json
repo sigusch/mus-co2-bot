@@ -3,7 +3,7 @@
         "doHttpRequest_en_us_lu": "1419df65-358d-4015-a098-1bfcd392320f",
         "addItem_en_us_lu": "c78399f4-6636-4390-bf0b-2c6cf4a4aa4a",
         "co2_bot_en_us_lu": "14cd3826-c167-4248-9c94-bcc79ed090db",
-        "doQuery_en_us_lu": "331ff515-166e-42e0-8da4-7a953de9cea4",
-        "getQueryData_en_us_lu": "e69a0033-b65e-4256-b497-6e9b8ae05b45"
+        "getQueryData_en_us_lu": "e69a0033-b65e-4256-b497-6e9b8ae05b45",
+        "doQuery_en_us_lu": "331ff515-166e-42e0-8da4-7a953de9cea4"
     }
 }

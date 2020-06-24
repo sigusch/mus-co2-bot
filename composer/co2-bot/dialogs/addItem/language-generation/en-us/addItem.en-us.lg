@@ -1,9 +1,12 @@
 [import](common.lg)
 
 
-# SendActivity_wS2mHN()
-- Current: $current
+
+# SendActivity_9M2kEL()
+- Setzen Sie mit den Einfügen von Produkten fort oder brechen sie ab. 
 
 
-# SendActivity_GPN0H1()
-- ${user.list}
+
+
+# SendActivity_hXMCya()
+- ${AvailableActions()}

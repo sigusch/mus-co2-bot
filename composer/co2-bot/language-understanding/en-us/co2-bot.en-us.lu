@@ -54,6 +54,7 @@
 		- yup
 		- ok
 		- j
+		- y
     - Nein:
 	    - nope
         - Ne
@@ -75,3 +76,14 @@
 - Einkaufen
 - Einkaufsliste erstellen
 - Bitte Liste beginnen
+
+# Show
+- Zeig mir meine Items
+- Zeig mir meine Produkte
+- Zeig mir meinen Warenkorb
+- Warenkorb
+- Zeig mir meine Liste
+- Was ist alles in meiner Einkaufsliste
+- Wie schaut meine Einkaufsliste aus
+- Zeig mir meine Einkaufsliste
+- Anzeigen

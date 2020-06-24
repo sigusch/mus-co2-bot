@@ -54,13 +54,6 @@
           ]
         },
         {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "wS2mHN"
-          },
-          "activity": "${SendActivity_wS2mHN()}"
-        },
-        {
           "$kind": "Microsoft.EditArray",
           "$designer": {
             "id": "ZDzvlG"
@@ -70,13 +63,6 @@
           "value": "=$current"
         },
         {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
-            "id": "GPN0H1"
-          },
-          "activity": "${SendActivity_GPN0H1()}"
-        },
-        {
           "$kind": "Microsoft.RepeatDialog",
           "$designer": {
             "id": "HbbNX9"
@@ -84,6 +70,54 @@
           "activityProcessed": true
         }
       ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "V324VX"
+      },
+      "intent": "Hilfe2",
+      "condition": "#Hilfe2.score > 0.7 && user.Adding",
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "9M2kEL"
+          },
+          "activity": "${SendActivity_9M2kEL()}"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "qAs0R4"
+      },
+      "intent": "End",
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "hXMCya"
+          },
+          "activity": "${SendActivity_hXMCya()}"
+        },
+        {
+          "$kind": "Microsoft.DeleteProperty",
+          "$designer": {
+            "id": "gkaDUd"
+          },
+          "property": "user.Adding"
+        },
+        {
+          "$kind": "Microsoft.CancelAllDialogs",
+          "$designer": {
+            "id": "WT4t5i"
+          },
+          "activityProcessed": true
+        }
+      ],
+      "condition": "user.Adding"
     }
   ],
   "generator": "addItem.lg",

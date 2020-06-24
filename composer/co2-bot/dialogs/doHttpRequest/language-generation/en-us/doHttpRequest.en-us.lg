@@ -2,7 +2,7 @@
 
 
 # SendActivity_7p8iW3()
-- ${user.number} kg aus ${user.country} verursachen ${dialog.co2} kg CO2! \n ${dialog.analogy}
+- ${user.number} kg ${user.product} aus ${user.country} verursachen ${dialog.co2} kg CO2! \n ${dialog.analogy}
 
 # SendActivity_P1CfuG()
 - CO2 Backend oder Ländern leider nicht verfügbar.

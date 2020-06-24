@@ -102,7 +102,8 @@
           }
         }
       ],
-      "condition": "#Abfrage.score > 0.8"
+      "condition": "#Abfrage.score > 0.8 && !user.Adding",
+      "priority": 1
     },
     {
       "$kind": "Microsoft.OnUnknownIntent",
@@ -249,7 +250,7 @@
           "activityProcessed": true
         }
       ],
-      "condition": "#Cancel.score > 0.7"
+      "condition": "#Cancel.score > 0.7 && !user.Adding"
     },
     {
       "$kind": "Microsoft.OnIntent",
@@ -266,7 +267,7 @@
           "activity": "${SendActivity_Bo62IT()}"
         }
       ],
-      "condition": "#Hilfe.score > 0.7"
+      "condition": "#Hilfe.score > 0.7 && !user.Adding"
     },
     {
       "$kind": "Microsoft.OnIntent",
@@ -276,15 +277,47 @@
       "intent": "Add",
       "actions": [
         {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "ub83W3"
+          },
+          "property": "user.Adding",
+          "value": true
+        },
+        {
           "$kind": "Microsoft.BeginDialog",
           "$designer": {
             "id": "S9NCDW"
           },
           "activityProcessed": true,
           "dialog": "addItem"
+        },
+        {
+          "$kind": "Microsoft.DeleteProperty",
+          "$designer": {
+            "id": "G6TJHG"
+          },
+          "property": "user.Adding"
         }
       ],
       "condition": "#Add.score > 0.7"
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "4au5HH"
+      },
+      "intent": "Show",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "wemATn"
+          },
+          "activityProcessed": true,
+          "dialog": "Show"
+        }
+      ]
     }
   ],
   "$schema": "https://raw.githubusercontent.com/microsoft/BotFramework-Composer/stable/Composer/packages/server/schemas/sdk.schema",
