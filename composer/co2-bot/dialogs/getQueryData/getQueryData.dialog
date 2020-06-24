@@ -1,0 +1,125 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "g4Ff1s",
+    "name": "getQueryData"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "id": "nl76oC"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "aHQxOs"
+          },
+          "condition": "(equals(user.product, '') && equals(user.country, '') && equals(user.number, '')) ||  (equals(user.product, null) && equals(user.country, null) && equals(user.number, null))",
+          "actions": [
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "ZUEAfN"
+              },
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": true,
+              "prompt": "${TextInput_Prompt_ZUEAfN()}"
+            },
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "iBYi6k"
+              },
+              "assignments": [
+                {
+                  "property": "user.country",
+                  "value": "${@country}"
+                },
+                {
+                  "property": "user.product",
+                  "value": "${@product}"
+                },
+                {
+                  "property": "user.number",
+                  "value": "${@number}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "QrkLel"
+          },
+          "condition": "equals(user.product, '')",
+          "actions": [
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "DMoNXj"
+              },
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": true,
+              "prompt": "${TextInput_Prompt_DMoNXj()}",
+              "property": "user.product"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "WzoUCT"
+          },
+          "condition": "equals(user.country, '')",
+          "actions": [
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "y2Nr84"
+              },
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": true,
+              "property": "user.country",
+              "prompt": "${TextInput_Prompt_y2Nr84()}"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "Zg5Txn"
+          },
+          "condition": "equals(user.number, '')",
+          "actions": [
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "cZRfLb"
+              },
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": true,
+              "prompt": "${TextInput_Prompt_cZRfLb()}",
+              "property": "user.number"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "getQueryData.lg",
+  "recognizer": "getQueryData.lu"
+}
