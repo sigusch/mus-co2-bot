@@ -2,6 +2,8 @@
 
 
 # SendActivity_wS2mHN()
-- Current: ${user.current}
-# TextInput_Prompt_JvzSXo()
-- Ok so?
+- Current: $current
+
+
+# SendActivity_GPN0H1()
+- ${user.list}

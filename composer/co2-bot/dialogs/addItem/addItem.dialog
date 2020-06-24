@@ -40,15 +40,15 @@
           },
           "assignments": [
             {
-              "property": "user.current.product",
+              "property": "dialog.current.product",
               "value": "${user.product}"
             },
             {
-              "property": "user.current.number",
+              "property": "dialog.current.number",
               "value": "${user.number}"
             },
             {
-              "property": "user.current.country",
+              "property": "dialog.current.country",
               "value": "${user.country}"
             }
           ]
@@ -61,15 +61,27 @@
           "activity": "${SendActivity_wS2mHN()}"
         },
         {
-          "$kind": "Microsoft.TextInput",
+          "$kind": "Microsoft.EditArray",
           "$designer": {
-            "id": "JvzSXo"
+            "id": "ZDzvlG"
           },
-          "disabled": false,
-          "maxTurnCount": 3,
-          "alwaysPrompt": false,
-          "allowInterruptions": false,
-          "prompt": "${TextInput_Prompt_JvzSXo()}"
+          "changeType": "push",
+          "itemsProperty": "user.list",
+          "value": "=$current"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "GPN0H1"
+          },
+          "activity": "${SendActivity_GPN0H1()}"
+        },
+        {
+          "$kind": "Microsoft.RepeatDialog",
+          "$designer": {
+            "id": "HbbNX9"
+          },
+          "activityProcessed": true
         }
       ]
     }
