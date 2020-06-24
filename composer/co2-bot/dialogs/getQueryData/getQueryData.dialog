@@ -29,7 +29,7 @@
               "disabled": false,
               "maxTurnCount": 3,
               "alwaysPrompt": false,
-              "allowInterruptions": true,
+              "allowInterruptions": false,
               "prompt": "${TextInput_Prompt_ZUEAfN()}"
             },
             {

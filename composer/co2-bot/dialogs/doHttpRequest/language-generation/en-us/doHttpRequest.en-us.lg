@@ -1,8 +1,5 @@
 [import](common.lg)
 
-# SendActivity_pzwjhB()
-- Data: ${user.country}, ${user.product}, ${user.number}
-
 
 # SendActivity_7p8iW3()
 - ${user.number} kg aus ${user.country} verursachen ${dialog.co2} kg CO2! \n ${dialog.analogy}

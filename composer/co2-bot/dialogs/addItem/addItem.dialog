@@ -1,0 +1,79 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "cIPhfv",
+    "name": "addItem"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "id": "luaWZG"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.DeleteProperties",
+          "$designer": {
+            "id": "8vURBF"
+          },
+          "properties": [
+            "user.country",
+            "user.number",
+            "user.product"
+          ]
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "FR9vjv"
+          },
+          "activityProcessed": true,
+          "dialog": "getQueryData"
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "gJRQpb"
+          },
+          "assignments": [
+            {
+              "property": "user.current.product",
+              "value": "${user.product}"
+            },
+            {
+              "property": "user.current.number",
+              "value": "${user.number}"
+            },
+            {
+              "property": "user.current.country",
+              "value": "${user.country}"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "wS2mHN"
+          },
+          "activity": "${SendActivity_wS2mHN()}"
+        },
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "JvzSXo"
+          },
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${TextInput_Prompt_JvzSXo()}"
+        }
+      ]
+    }
+  ],
+  "generator": "addItem.lg",
+  "recognizer": "addItem.lu"
+}

@@ -76,6 +76,12 @@
               "activityProcessed": true
             }
           ]
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "7iuEiL"
+          }
         }
       ]
     }

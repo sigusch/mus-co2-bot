@@ -45,6 +45,18 @@
           ],
           "value": "dialog.foreach.value",
           "index": "dialog.foreach.index"
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "nxVTga"
+          },
+          "assignments": [
+            {
+              "property": "user.list",
+              "value": "=[]"
+            }
+          ]
         }
       ]
     },
@@ -89,7 +101,8 @@
             "id": "248lcu"
           }
         }
-      ]
+      ],
+      "condition": "#Abfrage.score > 0.8"
     },
     {
       "$kind": "Microsoft.OnUnknownIntent",
@@ -254,6 +267,24 @@
         }
       ],
       "condition": "#Hilfe.score > 0.7"
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "6pPVZn"
+      },
+      "intent": "Add",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "S9NCDW"
+          },
+          "activityProcessed": true,
+          "dialog": "addItem"
+        }
+      ],
+      "condition": "#Add.score > 0.7"
     }
   ],
   "$schema": "https://raw.githubusercontent.com/microsoft/BotFramework-Composer/stable/Composer/packages/server/schemas/sdk.schema",
