@@ -23,21 +23,12 @@
     - Du fragst dich wieviel CO2 ein Produkt verursacht. Ich kanns dir sagen. 
     - Gibt mir das Produkt, das Herkunftsland und die Menge in KG und ich sag den CO2 Verbrauch. 
 
-
-# cardActionTemplate(type, title, value)
-[CardAction
-    Type = ${if(type == null, 'imBack', type)}
-    Title = ${title}
-    Value = ${value}
-    Text = ${title}
-]
+# showLists
+  - ${list(user.list, 'Einkaufsliste')}
 
 
-# ShowList
-[HeroCard
-    title = BotFramework Hero Card
-    subtitle = Microsoft Bot Framework
-    text = Build and connect intelligent bots to interact with your users naturally wherever they are, from text/sms to Skype, Slack, Office 365 mail and other popular services.
-    image = https://sec.ch9.ms/ch9/7ff5/e07cfef0-aa3b-40bb-9baa-7c9ef8ff7ff5/buildreactionbotframework_960.jpg
-    buttons = ${cardActionTemplate('imBack', 'Hinzufügen', 'Ausrechnen')}
-]
+# list(collection, name)
+- IF : ${collection != null}
+    - You have ${count(collection)} item(s) in your **${name}** list. \n ${join(foreach(collection, item, concat('- ', item)), '\n')}
+- ELSE : 
+    - You do not have any items in your **${name}** list.
