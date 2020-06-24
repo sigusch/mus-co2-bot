@@ -17,16 +17,48 @@
         {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
-            "id": "mNfKe8"
-          },
-          "activity": "${SendActivity_mNfKe8()}"
-        },
-        {
-          "$kind": "Microsoft.SendActivity",
-          "$designer": {
             "id": "HxD696"
           },
           "activity": "${SendActivity_HxD696()}"
+        },
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "hoBtT3"
+          },
+          "index": "dialog.foreach.index",
+          "value": "dialog.foreach.value",
+          "itemsProperty": "user.list",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "G8tkj1"
+              },
+              "assignments": [
+                {
+                  "property": "user.country",
+                  "value": "${dialog.foreach.value.country}"
+                },
+                {
+                  "property": "user.number",
+                  "value": "${dialog.foreach.value.number}"
+                },
+                {
+                  "property": "user.product",
+                  "value": "${dialog.foreach.value.product}"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "pGGLdN"
+              },
+              "activityProcessed": true,
+              "dialog": "doHttpRequest"
+            }
+          ]
         }
       ]
     }
