@@ -1,0 +1,7 @@
+{
+    "$kind": "Microsoft.MultiLanguageRecognizer",
+    "recognizers": {
+        "en-us": "doHttpRequest.en-us.lu",
+        "": "doHttpRequest.en-us.lu"
+    }
+}

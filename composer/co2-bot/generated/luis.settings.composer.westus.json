@@ -1,0 +1,9 @@
+{
+    "luis": {
+        "addItem_en_us_lu": "1464bfd2-8549-4404-8898-3b4b108e2409",
+        "doHttpRequest_en_us_lu": "951842d0-1850-42c7-b7ea-cf3ecafe2d94",
+        "co2_bot_en_us_lu": "8abfe7a0-6455-477e-923c-a5ac7c286c32",
+        "getQueryData_en_us_lu": "e61df9c3-4c0a-463c-a79b-67ce82e92554",
+        "doQuery_en_us_lu": "2eb3e71f-9a45-4505-a434-6abcc5652d02"
+    }
+}

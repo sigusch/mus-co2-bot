@@ -1,0 +1,7 @@
+{
+    "$kind": "Microsoft.MultiLanguageRecognizer",
+    "recognizers": {
+        "en-us": "getQueryData.en-us.lu",
+        "": "getQueryData.en-us.lu"
+    }
+}

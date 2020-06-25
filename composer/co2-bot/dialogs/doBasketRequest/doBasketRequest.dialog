@@ -1,0 +1,78 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "EpjLC7",
+    "name": "doBasketRequest"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "id": "yPnLx1"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "jI6NXe"
+          },
+          "method": "GET",
+          "url": "http://127.0.0.1:8080/?country=${user.country}&weight=${user.number}",
+          "resultProperty": "dialog.api.response"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "B89UBw"
+          },
+          "condition": "dialog.api.response.statuscode == 200",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "zbPTQq"
+              },
+              "property": "dialog.co2",
+              "value": "${dialog.api.response.content.co2}"
+            },
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "geEkHZ"
+              },
+              "property": "dialog.analogy",
+              "value": "${dialog.api.response.content.analogy}"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "scdaeT"
+              },
+              "activity": "${SendActivity_scdaeT()}"
+            },
+            {
+              "$kind": "Microsoft.DeleteProperty",
+              "$designer": {
+                "id": "uaGvi2"
+              },
+              "property": "dialog.api.response"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "Q3L6QD"
+          },
+          "value": "=dialog.co2"
+        }
+      ]
+    }
+  ],
+  "generator": "doBasketRequest.lg"
+}
