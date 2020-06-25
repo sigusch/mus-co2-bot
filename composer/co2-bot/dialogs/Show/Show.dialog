@@ -22,6 +22,14 @@
           "activity": "${SendActivity_HxD696()}"
         },
         {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "pqWbLM"
+          },
+          "property": "dialog.sum",
+          "value": "=0"
+        },
+        {
           "$kind": "Microsoft.Foreach",
           "$designer": {
             "id": "hoBtT3"
@@ -56,9 +64,25 @@
                 "id": "pGGLdN"
               },
               "activityProcessed": true,
-              "dialog": "doHttpRequest"
+              "dialog": "doBasketRequest",
+              "resultProperty": "dialog.coTwo"
+            },
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "adgLpV"
+              },
+              "property": "dialog.sum",
+              "value": "=add(float($sum), float(replace($coTwo, \",\", \".\")))"
             }
           ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "Gj6HP8"
+          },
+          "activity": "${SendActivity_Gj6HP8()}"
         }
       ]
     }

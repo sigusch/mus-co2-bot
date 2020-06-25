@@ -10,8 +10,6 @@
     SuggestedActions = CO2 Abfrage | Einkaufen |  Anzeigen | Abbrechen | Hilfe
 ]
 
-
-
 # QueryCo2
 - IF: ${user.Adding}
     - Füge Produkte zum Einkaufskorb hinzu. 
@@ -32,3 +30,75 @@
     - Es befinden sich ${count(collection)} Produkte in der **${name}**.  \n ${join(foreach(collection, item, concat('- ', concat(item.number, " kg ", item.product, " aus ", item.country))), '\n')}
 - ELSE : 
     - Es befinden sich keine Produkte in der **${name}**. 
+
+# AdaptiveCard
+[Activity
+    Attachments = ${json(adaptivecardjson())}
+]
+
+
+#adaptivecardjson
+- ```
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.2",
+    "body": [
+        {
+            "speak": "Emission Magician",
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": 2,
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "Hagenberg, OÖ"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "Emission Magician",
+                            "weight": "Bolder",
+                            "size": "ExtraLarge",
+                            "spacing": "None"
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": 1,
+                    "items": [
+                        {
+                            "type": "Image",
+                            "url": "https://www.agrarheute.com/media/styles/breitbild_5x2_xl_1x/public/2019-05/adobestock_32481007.jpeg.jpg",
+                            "size": "auto"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "CO2 Abfrage",
+            "data": "CO2 Abfrage",
+            "text": "CO2 Abfrage",
+        },
+        {
+            "type": "Action.Submit",
+            "title": "Einkaufen",
+            "data": "Einkaufen",
+            "text": "Einkaufen"            
+        },
+        {
+            "type": "Action.Submit",
+            "title": "Anzeigen",
+            "data": "Anzeigen",
+            "text": "Anzeigen"
+        }
+    ]
+}
+```
+    
