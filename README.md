@@ -78,8 +78,5 @@ As described above the bot can be used to query emitted CO2 for products and als
 #### Shopping 
 ![Luis entities](./img/Einkaufen.gif)
 
-#### Missing values
-![Luis entities](./img/rueckfrage.gif)
-
 ### Telegram
 ![Luis entities](./img/azure.png)
