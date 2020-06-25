@@ -66,10 +66,20 @@ When our bot is ready for starting new dialogs it sends the user input to our lu
 As described above the bot can be used to query emitted CO2 for products and also emitted CO2 for whole shopping lists. It supports multiple natural language commands for its functionalities. For a better user experience it also supports commands to cancel the current query or to show the user available commands.
 
 ### Demo
+#### CO2 Query
+![Luis entities](./img/co2-abfrage.gif)
 
-// gif here
+#### Instant Query
+![Luis entities](./img/instant-abfrage.gif)
 
-## References
+#### Cancel
+![Luis entities](./img/abbrechen.gif)
 
-* https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0&tabs=csharp  
-* https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-telegram?view=azure-bot-service-4.0
+#### Shopping 
+![Luis entities](./img/Einkaufen.gif)
+
+#### Missing values
+![Luis entities](./img/rueckfrage.gif)
+
+### Telegram
+![Luis entities](./img/azure.png)
