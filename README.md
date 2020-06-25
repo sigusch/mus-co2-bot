@@ -24,21 +24,40 @@ Sources for the generated analogies can be found in the [server.js sourcecode](.
 
 ### Bot Framework
 
+We used the Microsoft Bot Framework Composer to develop our bot and the Bot Framework Emulator to test it. An Example for the Emulator can be found at the end of this file.
 
+#### Bot Framework Composer
 
-beispiele für
-* Dialogtrees 
-* scopes
-* variable binding
-* http requests
-* usw
+The Bot Framework composer is a visual design tool help developers get a first glance at developing chatbots. It offers luis integration and an easy way to connect to the bot emulator out of the box. Furthermore it includes a bot runtime executable so can easily test run your bot locally.
+
+Here you can see how a sample dialog might look like in the bot framework composer. It visually demonstrates the applications logical flow to the developer who can use UI building blocks to implement the bots logic.
+
+![dialog tree](./img/dialog-tree.png)
+
+The bot framework uses certain scope objects which can be extended by custom properties. In this example we are adding the current product of the user object(application scope) to the custom property of the dialog object (dialog scope)
+
+![variable](./img/variable.png)
+
+The bot can also send http-requests to external apis in order to query for wanted data. We had some problems with sending parameters in the body so we used url-encoded query parameters instead.
+
+![emulator](./img/http-request.png)
+
+#### Bot Framework Emulator
+
+The bot framework emulator can be used to test and debug your bot. It provides a debugging console and also an inspector to analyze the http message flow of the bot. This way you can for example inspect the responses from luis model and check if your language understanding model works as intended.
+
+![emulator](./img/emulator.png)
 
 
 ### LUIS
 
 Luis uses a certain model for its language understanding. More details can be found [here](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/).  
 
-We used a number of apps which then use a number of intents for the individual prompts we offer the user. In order to keep the model simple we decided to only use three entities. The first is the prebuild entity number which represents the weight of the user query. The remaining two entities are the machine learned entities country and product. The idea behind machine learned entities is that the luis model improves in identifying these with an increasing number of examples. Therefore we used a Phraselist for both classes to provide a solid starting set of examples.
+We used a number of apps which then use a number of intents for the individual prompts we offer the user. In order to keep the model simple we decided to only use three entities. The first is the prebuild entity number which represents the weight of the user query. The remaining two entities are the machine learned entities country and product. The idea behind machine learned entities is that the luis model improves in identifying these with an increasing number of examples. Therefore we used a Phraselist for both classes to provide a solid starting set of examples.  
+
+Additionally to phraselists for entities you can also add examples for intents to a luis model which help it recognize intents and its entities even better. When adding such an example to the model it will try to predict the contained entities automatically. This prediction can then be changed or confirmed.  
+
+![Luis entities](./img/luis-entities.png)
 
 When our bot is ready for starting new dialogs it sends the user input to our luis model which then returns the most likely intent to use and the predicted entities.  
 
