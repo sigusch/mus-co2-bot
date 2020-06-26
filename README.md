@@ -79,4 +79,7 @@ As described above the bot can be used to query emitted CO2 for products and als
 ![Luis entities](./img/Einkaufen.gif)
 
 ### Telegram
-![Luis entities](./img/azure.png)
+
+Unfortunately we were not authorized to deploy the bot on the azure cloud environment of the FH.
+
+![telegram](./img/azure.png)
